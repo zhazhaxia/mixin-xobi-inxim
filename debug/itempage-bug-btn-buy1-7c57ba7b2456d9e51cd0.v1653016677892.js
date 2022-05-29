@@ -2984,7 +2984,7 @@ console.log("---debug---");
                     }, 2100);
                     var t = this;
                     setTimeout((function() {
-                        t && t.startTimer && t.startTimer()
+                        t &&t.startTimer &&t.startTimer()
                     }
                     ), 500)
                 }
