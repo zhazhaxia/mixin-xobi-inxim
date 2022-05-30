@@ -31,6 +31,7 @@ methods: {
 - doBuy
 立即购买
 
+呼起购买弹窗之前，会调用 nft/user/getUserInfo 接口获取用户信息
 
 ```js
 {key:"doBuy",value:(n=s()(g.a.mark((function t(){return g.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:this.showOrderModal();case 1:case"end":return t.stop()}}),t,this)})))
@@ -81,6 +82,42 @@ return l()(c, [{
         ), 500)
     }
 }
+```
+
+
+
+- 弹窗后购买
+调用check()
+
+调用锁单接口 nft/order/create
+
+
+```js
+
+methods:{check(){this.payChannel!==r.e.YeeWallet||3===(this.userInfo||{}).yeepayWalletProgress?this.isResell?this.$modal.show(l.a,{type:1,action:1,price:this.data.price||"--"},{name:"MarketConfirmModal",height:"auto",clickToClose:!1,showClose:!1,position:"center",width:"80%",mask:!0},{confirm:()=>{this.$parent.$emit("check")}}):this.$parent.$emit("check"):this.openWallet()}
+
+
+check() {
+    console.log("===check===")
+      this.payChannel !== r.e.YeeWallet || 3 === (this.userInfo || {}).yeepayWalletProgress ? this.isResell ? this.$modal.show(l.a, {
+          type: 1,
+          action: 1,
+          price: this.data.price || "--"
+      }, {
+          name: "MarketConfirmModal",
+          height: "auto",
+          clickToClose: !1,
+          showClose: !1,
+          position: "center",
+          width: "80%",
+          mask: !0
+      }, {
+          confirm: ()=>{
+              this.$parent.$emit("check")
+          }
+      }) : this.$parent.$emit("check") : this.openWallet()
+  },
+
 ```
 
 - goResell

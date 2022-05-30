@@ -2976,7 +2976,8 @@ console.log("===login buy===");
               key: "mounted",
               value: function() {
                   var t = this;
-                  this.doBuy()
+                  this.doBuy();
+                  console.log("===do buy===");
                   setTimeout((function() {
                       t && t.startTimer && t.startTimer()
                   }
@@ -3596,6 +3597,7 @@ console.log("===login buy===");
           }),
           created() {
               this.$store.dispatch("getUserInfo")
+              // this.check();
           },
           computed: {
               ...Object(a.e)(["userInfo", "payChannel", "appConfig"]),
@@ -3618,6 +3620,9 @@ console.log("===login buy===");
           },
           methods: {
               check() {
+                console.log("===check===")
+                // this.$parent.$emit("check");
+                // return;
                   this.payChannel !== r.e.YeeWallet || 3 === (this.userInfo || {}).yeepayWalletProgress ? this.isResell ? this.$modal.show(l.a, {
                       type: 1,
                       action: 1,
@@ -3634,7 +3639,7 @@ console.log("===login buy===");
                       confirm: ()=>{
                           this.$parent.$emit("check")
                       }
-                  }) : this.$parent.$emit("check") : this.openWallet()
+                  }) : this.$parent.$emit("check"):this.openWallet()
               },
               changeStatus() {
                   this.checked = !this.checked
@@ -3763,7 +3768,7 @@ console.log("===login buy===");
               on: {
                   click: t.check
               }
-          }, [t._v("\n            立即购买\n        ")])])])
+          }, [t._v("\n            ---立即购买\n        ")])])])
       }
       ), [], !1, null, "4e627962", null);
       e.a = h.exports
