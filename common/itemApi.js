@@ -1379,12 +1379,16 @@ console.log("---api---");
           )))()
       },
       createOrder: function(t) {
-          return x()(k.a.mark((function e() {
+
+        // const rst = O.a.post(o.GoodsCreate, n)
+        // console.log("===create order===",rst);
+        return x()(k.a.mark((function e() {
               var n, r;
               return k.a.wrap((function(e) {
                   for (; ; )
                       switch (e.prev = e.next) {
                       case 0:
+                          console.log("===create order===",O.a.post);
                           return n = N(N({}, t), t.payerInfo || {}),
                           e.next = 3,
                           O.a.post(o.GoodsCreate, n);
@@ -2010,13 +2014,18 @@ console.log("---api---");
           )))()
       },
       createResellOrder: function(t) {
-          return x()(k.a.mark((function e() {
+        console.log("===resell order===");
+        return x()(k.a.mark((function e() {
               var n;
               return k.a.wrap((function(e) {
                   for (; ; )
                       switch (e.prev = e.next) {
                       case 0:
-                          return e.next = 2,
+                      O.a.post(o.ResellCreate, t).then(res=>{
+                      console.log("===resell order222 ressss===",res);
+                      })
+                      console.log("===resell order222===",O.a.post);
+                      return e.next = 2,
                           O.a.post(o.ResellCreate, t);
                       case 2:
                           return n = e.sent,

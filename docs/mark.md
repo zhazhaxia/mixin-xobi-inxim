@@ -120,6 +120,41 @@ check() {
 
 ```
 
+- 购买回调
+
+```js
+createResellOrder:function(t){return x()(k.a.mark((function e(){var n;return k.a.wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return e.next=2,O.a.post(o.ResellCreate,t);case 2:return n=e.sent,e.abrupt("return",O.a.result(n));case 4:case"end":return e.stop()}}),e)})))()}
+
+
+createResellOrder: function(t) {
+  console.log("===resell order===");
+  return x()(k.a.mark((function e() {
+        var n;
+        return k.a.wrap((function(e) {
+            for (; ; )
+                switch (e.prev = e.next) {
+                case 0:
+                O.a.post(o.ResellCreate, t).then(res=>{
+                console.log("===resell order222 ressss===",res);
+                })
+                console.log("===resell order222===",O.a.post);
+                return e.next = 2,
+                    O.a.post(o.ResellCreate, t);
+                case 2:
+                    return n = e.sent,
+                    e.abrupt("return", O.a.result(n));
+                case 4:
+                case "end":
+                    return e.stop()
+                }
+        }
+        ), e)
+    }
+    )))()
+}
+
+```
+
 - goResell
 立即寄售
 ```js
